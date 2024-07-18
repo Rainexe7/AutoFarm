@@ -8069,17 +8069,17 @@ Type = 1
 spawn(function()
     while wait(.1) do
         if Type == 1 then
-            Pos = CFrame.new(0,PosY,0)
+            Pos = CFrame.new(0,11,0)
 		elseif Type == 2 then
-			Pos = CFrame.new(0,PosY,-30)
+			Pos = CFrame.new(0,0,11)
 		elseif Type == 3 then
-			Pos = CFrame.new(30,PosY,0)
+			Pos = CFrame.new(0,11,0)
 		elseif Type == 4 then
-			Pos = CFrame.new(0,PosY,30)	
+			Pos = CFrame.new(0,0,11)	
 		elseif Type == 5 then
-			Pos = CFrame.new(-30,PosY,0)
+			Pos = CFrame.new(0,11,0)
 		elseif Type == 6 then
-			Pos = CFrame.new(0,35,0)
+			Pos = CFrame.new(0,0,11)
         end
         end
     end)
@@ -8087,15 +8087,15 @@ spawn(function()
 spawn(function()
     while wait(.1) do
         Type = 1
-        wait(0.5)
+        wait(0.1)
         Type = 2
-        wait(0.5)
+        wait(0.1)
         Type = 3
-        wait(0.5)
+        wait(0.1)
         Type = 4
-        wait(0.5)
+        wait(0.1)
         Type = 5
-        wait(0.5)
+        wait(0.1)
     end
 end)
     
@@ -8839,9 +8839,9 @@ spawn(function()
                     CheckQuest()
                     repeat wait() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameQuest until (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 or not _G.AutoFarm
                     if (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 then
-                        wait(0.000001)
+                        wait(0.1)
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
-                        wait(0.000001)
+                        wait(0.1)
                     end
                 elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
                     CheckQuest()
@@ -8854,7 +8854,7 @@ spawn(function()
                                             AutoHaki()        
                                             EquipWeapon(_G.SelectWeapon)                                    
                                             PosMon = v.HumanoidRootPart.CFrame
-                                            TP(v.HumanoidRootPart.CFrame * CFrame.new(0,11,0))
+                                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * Pos
                                             v.HumanoidRootPart.CanCollide = false
                                             v.Humanoid.WalkSpeed = 0
                                             v.Head.CanCollide = false
@@ -8871,27 +8871,27 @@ spawn(function()
                             end
                         end
                     else
-                        tps(Mon)
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Mon
                         wait(0.1)
-                        tps(Mon)
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Mon
                         wait(0.1)
-                        tps(Mon)
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Mon
                         wait(0.1)
-                        tps(Mon)
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Mon
                         wait(0.1)
-                        tps(Mon)
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Mon
                         wait(0.1)
-                        tps(Mon)
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Mon
                         StartMagnet = false
                                 if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
-                                    TP(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(0,11,0))
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * Pos
                                 else
                                     if (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 15 then
                                         if PosMon ~= nil then
-                                            TP(PosMon * CFrame.new(0,11,0))
+                                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = PosMon * CFrame.new(0,11,0)
                                         else
                                             if OldPos ~= nil then
-                                                TP(OldPos.Position)
+                                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OldPos.Position
                                             end
                                         end
                                     end
